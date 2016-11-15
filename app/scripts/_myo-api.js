@@ -21,11 +21,13 @@ export default class MyoApi {
 			throw new Error('You need to provide an app name');
 		}
 
-		let myoSnap = new MyoSnap(Myo);
+		const myoSnap = new MyoSnap(Myo);
 		
+		myoSnap.init();
+
 		Myo.connect(this.options.appName);
 
-		let canvas = new Canvas(document.querySelector(this.options.canvas));
+		const canvas = new Canvas(document.querySelector(this.options.canvas));
 		canvas.init();
 
 		this.canvas = canvas;
@@ -54,8 +56,8 @@ export default class MyoApi {
 	/**
 	 * Handle the snap event
 	 */
-	snapHandler() {		
-		if(this.isActive) {
+	snapHandler() {
+		if(!this.isActive) {
 			this.armband.on('orientation', this.drawLine.bind(this));
 		} else {
 			this.armband.off('orientation')

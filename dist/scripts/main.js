@@ -119,6 +119,8 @@ var MyoApi = (function () {
 
 		var myoSnap = new _myoSnap2['default'](_myo2['default']);
 
+		myoSnap.init();
+
 		_myo2['default'].connect(this.options.appName);
 
 		var canvas = new _canvas2['default'](document.querySelector(this.options.canvas));
@@ -154,7 +156,7 @@ var MyoApi = (function () {
   */
 
 	MyoApi.prototype.snapHandler = function snapHandler() {
-		if (this.isActive) {
+		if (!this.isActive) {
 			this.armband.on('orientation', this.drawLine.bind(this));
 		} else {
 			this.armband.off('orientation');
@@ -222,9 +224,13 @@ var MyoSnap = (function () {
 
 		Myo.plugins = {};
 
-		this.flex(Myo);
-		this.snap(Myo);
+		this.myo = Myo;
 	}
+
+	MyoSnap.prototype.init = function init() {
+		this.flex(this.myo);
+		this.snap(this.myo);
+	};
 
 	MyoSnap.prototype.flex = function flex(Myo) {
 		Myo.plugins.flex = {

@@ -64,5 +64,5 @@ module.exports = function (grunt) {
    });
 
    grunt.registerTask('default', ['concurrent:serve']);
-   grunt.registerTask('build', ['browserify']);
+   grunt.registerTask('build', ['sass', 'browserify']);
 };

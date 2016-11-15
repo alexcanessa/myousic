@@ -2,8 +2,12 @@ export default class MyoSnap {
 	constructor(Myo) {
 		Myo.plugins = {};
 
-		this.flex(Myo);
-		this.snap(Myo);
+		this.myo = Myo;
+	}
+
+	init() {
+		this.flex(this.myo);
+		this.snap(this.myo);
 	}
 
 	flex(Myo) {
