@@ -1,0 +1,23 @@
+{
+  "name": "myousic",
+  "version": "0.1.0",
+  "author": {
+    "name": "Alex Canessa"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexcanessa/myousic.git"
+  },
+  "devDependencies": {
+    "babelify": "^6.1.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.8.0",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-php": "^1.5.1",
+    "jit-grunt": "^0.10.0",
+    "myo": "^2.1.1"
+  },
+  "license": "ISC"
+}
