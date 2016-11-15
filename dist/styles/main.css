@@ -1,6 +1,25 @@
 body {
   background: #21002F; }
 
+.battery-level {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  height: 40px;
+  width: 80px;
+  border: 4px solid #fff; }
+  .battery-level__bar {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: 4px; }
+    .battery-level__bar--low {
+      background: #F12E06; }
+    .battery-level__bar--medium {
+      background: #F4D609; }
+    .battery-level__bar--high {
+      background: #26D904; }
+
 .heading {
   font-family: Arial;
   font-size: 34px;

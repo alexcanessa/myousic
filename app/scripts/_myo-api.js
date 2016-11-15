@@ -1,11 +1,13 @@
 import Myo from 'myo';
 import MyoSnap from './_myo-snap';
 import Canvas from './_canvas';
+import WebAudioPlayer from 'web-audio-player';
 
 const defaults = {
 	appName: '',
 	canvas: '.js-myo-canvas',
-	triggerEvent: 'fist'
+	triggerEvent: 'fist',
+	audioFile: '/audio/touch.m4a'
 };
 
 /**
@@ -31,18 +33,23 @@ export default class MyoApi {
 		canvas.init();
 
 		this.canvas = canvas;
+		this.audio = WebAudioPlayer(this.options.audioFile);
+		this.audio.node.connect(this.audio.context.destination);
+
 		this.isActive = false;
 	}
 
 	/**
 	 * Initialise the module
 	 */
-	init() {
+	init(callback) {
 		const that = this;
 
 		Myo.on('connected', function() {
 			that.armband = this;
 			that.bind();
+
+			callback();
 		});
 	}
 
@@ -52,15 +59,17 @@ export default class MyoApi {
 	bind() {
 		this.armband.on(this.options.triggerEvent, this.snapHandler.bind(this));
 	}
-
+	
 	/**
 	 * Handle the snap event
 	 */
 	snapHandler() {
 		if(!this.isActive) {
 			this.armband.on('orientation', this.drawLine.bind(this));
+			this.audio.play()
 		} else {
-			this.armband.off('orientation')
+			this.armband.off('orientation');
+			this.audio.stop();
 		}
 
 		this.isActive = !this.isActive;
@@ -71,11 +80,23 @@ export default class MyoApi {
 	 * 
 	 * @param  {String} data
 	 */
-	drawLine(data) {		
+	drawLine(data) {
+		this.audio.volume = this.getVolume(data.x);
 		this.canvas.drawLine({
 			y: this.percentify(data.y),
 			size: this.getSize(data.x)
 		});
+	}
+
+	/**
+	 * Create the volume value
+	 * 
+	 * @param  {Number} data
+	 * 
+	 * @return {Number}
+	 */
+	getVolume(data) {
+		return data + 1;
 	}
 
 	/**

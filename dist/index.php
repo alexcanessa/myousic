@@ -8,6 +8,10 @@
 <body>
 	<h1 class="heading">Myousic</h1>
 
+	<div class="battery-level">
+		<div class="js-battery-level battery-level__bar"></div>
+	</div>
+
 	<canvas class="js-infinite-line infinite-line">
 		Use a modern browser, b**ch!
 	</canvas>

@@ -19,5 +19,8 @@
     "jit-grunt": "^0.10.0",
     "myo": "^2.1.1"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "web-audio-player": "^1.2.1"
+  }
 }
