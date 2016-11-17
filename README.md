@@ -1,6 +1,8 @@
 # Myousic
 
-App to control music through Myo
+App to control music through Myo.
+
+Visit http://myousic.alexcanessa.me/ for the demo. **You need a Myo armband connected to make it work!**
 
 ## Set up
 
