@@ -44,7 +44,7 @@ module.exports = function (grunt) {
       php: {
           dist: {
               options: {
-                  base: './dist',
+                  base: './',
                   hostname: '0.0.0.0',
                   port: 4130,
                   keepalive: true,
@@ -63,6 +63,6 @@ module.exports = function (grunt) {
       }
    });
 
-   grunt.registerTask('default', ['concurrent:serve']);
    grunt.registerTask('build', ['sass', 'browserify']);
+   grunt.registerTask('default', ['build', 'concurrent:serve']);
 };
