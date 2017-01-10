@@ -4,7 +4,7 @@
 	<title>Myousic</title>
 </head>
 
-<link rel="stylesheet" type="text/css" href="/styles/main.css">
+<link rel="stylesheet" type="text/css" href="/dist/styles/main.css">
 <body>
 	<h1 class="heading">Myousic</h1>
 
@@ -16,6 +16,6 @@
 		Use a modern browser, b**ch!
 	</canvas>
 
-	<script src="/scripts/main.js"></script>
+	<script src="/dist/scripts/main.js"></script>
 </body>
 </html>

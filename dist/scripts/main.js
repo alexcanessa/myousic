@@ -101,7 +101,7 @@ var defaults = {
 	appName: '',
 	canvas: '.js-myo-canvas',
 	triggerEvent: 'fist',
-	audioFile: '/audio/touch.m4a'
+	audioFile: '/dist/audio/touch.m4a'
 };
 
 /**
